@@ -1,0 +1,17 @@
+version: '3'
+services:
+  certbot:
+    image: thomasyuan/certbot
+    container_name: certbot
+    ports:
+      - 80:80
+    environment:
+      # Please replace the email and domain to your real info.
+      - EMAIL=admin@example.com
+      - DOMAIN=www.example.com
+    volumes:
+      # keep certificate to an volume, you can change it to a fold of host.
+      - letsencrypt:/etc/letsencrypt
+
+volumes:
+  letsencrypt:
